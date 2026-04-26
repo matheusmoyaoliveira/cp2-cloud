@@ -102,7 +102,8 @@ CP2-CLOUD/
 │   └── init.sql
 │
 ├── evidencias/
-│
+├── create-docker-objects.bat
+├── create-docker-objects.sh
 ├── docker-compose.yml
 ├── scripts-docker.md
 └── README.md

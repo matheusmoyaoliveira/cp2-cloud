@@ -95,7 +95,6 @@ CP2-CLOUD/
 │
 ├── app/
 │   ├── app.py
-│   ├── Dockerfile
 │   └── requirements.txt
 │
 ├── db/
@@ -104,7 +103,6 @@ CP2-CLOUD/
 ├── evidencias/
 ├── create-docker-objects.bat
 ├── create-docker-objects.sh
-├── docker-compose.yml
 ├── scripts-docker.md
 └── README.md
 ```

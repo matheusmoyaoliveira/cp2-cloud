@@ -17,11 +17,10 @@ docker run --name rm562822_rm562145_db_clientes -d \
 --network rm562822_rm562145_network \
 postgres:16
 
-echo "Construindo imagem da API..."
-docker build -t cp2-cloud-app ./app
-
-echo "Criando container da API..."
+echo "Criando container da API com imagem oficial Python..."
 docker run --name rm562822_rm562145_api_clientes -d \
+-v "$(pwd)/app":/app \
+-w /app \
 -e DB_HOST=rm562822_rm562145_db_clientes \
 -e DB_NAME=cp2_cloud \
 -e DB_USER=cp2_user \
@@ -29,7 +28,8 @@ docker run --name rm562822_rm562145_api_clientes -d \
 -e DB_PORT=5432 \
 -p 5000:5000 \
 --network rm562822_rm562145_network \
-cp2-cloud-app
+python:3.12-slim \
+sh -c "pip install -r requirements.txt && python app.py"
 
 echo "Objetos Docker criados com sucesso."
 docker ps --filter "name=rm562822_rm562145"
